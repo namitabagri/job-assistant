@@ -5,7 +5,6 @@ from config.settings import (
     OPENAI_MODEL,
 )
 
-
 class LLMClient:
     def __init__(self):
         self.client = OpenAI(api_key=OPENAI_API_KEY)
@@ -18,3 +17,12 @@ class LLMClient:
         )
 
         return response.output_text
+    
+    def generate_structured(self, prompt: str, schema):
+        response = self.client.responses.parse(
+            model=self.model,
+            input=prompt,
+            text_format=schema,
+        )
+
+        return response.output_parsed
