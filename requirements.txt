@@ -1,0 +1,8 @@
+# LLM
+openai
+
+# Configuration
+python-dotenv
+
+# Data validation / structured outputs
+pydantic
